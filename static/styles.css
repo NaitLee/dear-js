@@ -1,0 +1,155 @@
+
+:root {
+  --fore: #202020;
+  --back: #f0f0f0;
+  --descent-1: #e8e8e8;
+  --descent-2: #f8f8f8;
+  --theme-1: #8aceff;
+  --wrong: #ff3333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+button {
+  color: inherit;
+  font: inherit;
+  background: none;
+}
+button, [role="button"] {
+  cursor: pointer;
+}
+code, pre {
+  font-size: 1em;
+  font-family: "Consolas", "Liberation Mono", "Courier New", ui-monospace, monospace;
+}
+img,
+svg {
+  display: block;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+label {
+  padding: 0 4px;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Noto Sans', 'Segoe UI', ui-sans-serif, sans-serif, "Noto Color Emoji",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--fore);
+  background-color: var(--back);
+  text-align: center;
+  margin: 1em auto;
+}
+
+p {
+  margin: 1em;
+}
+
+a:any-link {
+  color: var(--fore);
+  text-decoration: underline;
+}
+
+footer {
+  margin-bottom: 8em;
+}
+
+
+.game {
+  margin: 1em auto;
+}
+
+.dashboard {
+  text-align: start;
+  width: 27.3cm;
+  max-width: 100%;
+  white-space: nowrap;
+  padding: 1em;
+  margin: auto;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: var(--back);
+  z-index: 2;
+}
+.score {
+  float: left;
+  min-width: 8em;
+  border-left: 1px solid var(--fore);
+  border-right: 1px solid var(--fore);
+  padding: 0 1em;
+  margin-right: 1em;
+}
+.selections--wrong {
+  color: var(--wrong);
+}
+
+.game__board {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  text-align: center;
+  padding: 0 1em 4em 1em;
+}
+
+.board__cell {
+  display: inline-block;
+  vertical-align: middle;
+  width: 6em;
+  height: 4em;
+  border: none;
+  padding: 8px;
+  white-space: normal;
+  background-color: var(--descent-1);
+  /* background-color: var(--theme-1); */
+  transition: transform 0.3s cubic-bezier(.08,.82,.17,1);
+  transition-property: transform, color, background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(.08,.82,.17,1);
+  transform: scale(0.9);
+}
+
+.board__cell--selected {
+  transform: scale(1);
+  background-color: var(--theme-1);
+}
+
+.board__cell--selected--wrong {
+  background-color: var(--wrong);
+}
+
+.fresh-logo {
+  display: inline-block;
+  width: 197px;
+  height: 37px;
+  background: url('https://fresh.deno.dev/fresh-badge.svg');
+}
+.fresh-logo > img {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fore: #e0e0e0;
+    --back: #202020;
+    --descent-1: #282828;
+    --descent-2: #323232;
+    --theme-1: #593ffd;
+    --wrong: #ff3333;
+  }
+  .fresh-logo {
+    background: url('https://fresh.deno.dev/fresh-badge-dark.svg');
+  }
+}
